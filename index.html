@@ -1,38 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Minha Loja com Snipcart</title>
-
-  <!-- Snipcart CSS -->
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
+  
+  <!-- Pré-conexão para melhor performance -->
+  <link rel="preconnect" href="https://app.snipcart.com">
+  <link rel="preconnect" href="https://cdn.snipcart.com">
+  
+  <!-- Configurações Snipcart -->
+  <script>
+    window.SnipcartSettings = {
+      publicApiKey: "MjI1NGRkMTQtZDAyMS00YmUwLTg3NGEtN2QxMDRhMzhjOTVjNjM4ODg3MTU3NTU5MzIxNzg2", // Substitua pela sua chave
+      loadStrategy: "on-user-interaction",
+      currency: "brl", // Moeda brasileira
+      version: "3.0.31", // Versão específica para estabilidade
+      modalStyle: "side", // Carrinho lateral
+      addProductBehavior: "none" // Não abre o carrinho automaticamente
+    };
+  </script>
+  
+  <!-- Loader Snipcart -->
+  <script>
+    (function(){var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var m,g;(g=(m=window.SnipcartSettings).loadCSS)!=null||(m.loadCSS=!0);var y=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,f=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(f.forEach(function(t){return document.addEventListener(t,o)}),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],n=document.querySelector("#snipcart"),i=document.querySelector('src[src^="'.concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,'"][src$="snipcart.js"]')),e=document.querySelector('link[href^="'.concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,'"][href$="snipcart.css"]'));n||(n=document.createElement("div"),n.id="snipcart",n.setAttribute("hidden","true"),document.body.appendChild(n)),h(n),i||(i=document.createElement("script"),i.src="".concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,"/themes/v").concat(window.SnipcartSettings.version,"/default/snipcart.js"),i.async=!0,t.appendChild(i)),!e&&window.SnipcartSettings.loadCSS&&(e=document.createElement("link"),e.rel="stylesheet",e.type="text/css",e.href="".concat(window.SnipcartSettings.protocol,"://").concat(window.SnipcartSettings.domain,"/themes/v").concat(window.SnipcartSettings.version,"/default/snipcart.css"),t.prepend(e)),f.forEach(function(v){return document.removeEventListener(v,o)})}function h(t){!y||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+  </script>
 </head>
 <body>
+  <header>
+    <h1>Minha Loja</h1>
+    <!-- Ícone do carrinho -->
+    <div class="snipcart-summary snipcart-checkout" style="cursor:pointer;">
+      <span>🛒</span>
+      <span class="snipcart-total-items">0</span> itens - 
+      <span class="snipcart-total-price">R$0,00</span>
+    </div>
+  </header>
 
-  <h1>Produto: Camiseta Preta</h1>
-  <p>Preço: R$ 49,90</p>
+  <main>
+    <!-- Exemplo de produto -->
+    <div class="product">
+      <h2>Camiseta Básica</h2>
+      <p>R$ 49,90</p>
+      <button class="snipcart-add-item"
+        data-item-id="camiseta-basica"
+        data-item-price="49.90"
+        data-item-url="/produtos/camiseta-basica"
+        data-item-name="Camiseta Básica"
+        data-item-description="Camiseta 100% algodão"
+        data-item-image="/images/camiseta.jpg">
+        Adicionar ao carrinho
+      </button>
+    </div>
+  </main>
 
-  <!-- Botão de compra -->
-  <button 
-    class="snipcart-add-item"
-    data-item-id="camiseta-preta"
-    data-item-price="49.90"
-    data-item-url="/"
-    data-item-name="Camiseta Preta"
-  >
-    Comprar agora
-  </button>
-
-  <!-- Carrinho -->
-  <div class="snipcart-summary">
-    <button>
-      🛒 Carrinho (<span class="snipcart-total-items"></span>)
-    </button>
-  </div>
-
-  <!-- Snipcart JS + sua API key -->
-  <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
-  <div hidden id="snipcart" data-api-key="S_ZGIzYTQ4MWUtZGRjMi00NDkxLWEzZWEtN2M3MzlkNzRhZWVlNjM4ODg3MTc1NDYyNDQyMTIw"></div>
+  <!-- Container Snipcart (será preenchido automaticamente) -->
+  <div hidden id="snipcart" data-api-key="SUA_CHAVE_PUBLICA_AQUI"></div>
 </body>
 </html>
