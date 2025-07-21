@@ -1,5 +1,38 @@
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minha Loja com Snipcart</title>
 
-<script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" data-api-key="34191092483769711293885529870009111310000017275" id="snipcart"></script>
+  <!-- Snipcart CSS -->
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
+</head>
+<body>
 
-<link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" rel="stylesheet" type="text/css" />
+  <h1>Produto: Camiseta Preta</h1>
+  <p>Preço: R$ 49,90</p>
+
+  <!-- Botão de compra -->
+  <button 
+    class="snipcart-add-item"
+    data-item-id="camiseta-preta"
+    data-item-price="49.90"
+    data-item-url="/"
+    data-item-name="Camiseta Preta"
+  >
+    Comprar agora
+  </button>
+
+  <!-- Carrinho -->
+  <div class="snipcart-summary">
+    <button>
+      🛒 Carrinho (<span class="snipcart-total-items"></span>)
+    </button>
+  </div>
+
+  <!-- Snipcart JS + sua API key -->
+  <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
+  <div hidden id="snipcart" data-api-key="S_ZGIzYTQ4MWUtZGRjMi00NDkxLWEzZWEtN2M3MzlkNzRhZWVlNjM4ODg3MTc1NDYyNDQyMTIw"></div>
+</body>
+</html>
